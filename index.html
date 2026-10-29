@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sort It Out La Trinidad: Community Campaign for Cleaner Waste and Safer Chemicals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7f5;--ink:#13262b;--mute:#47595e;--card:#ffffff;--line:#c9d6d1;--brand:#0c5c57;--onbrand:#ffffff;--sun:#f4b400;--green:#2e8b3d;--blue:#1f63b8;--grey:#59656b;--red:#c8372d;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1a1c;--ink:#e8f1ee;--mute:#a7bcb7;--card:#15282b;--line:#2c4247;--brand:#5fd1c6;--onbrand:#0d1a1c;--sun:#ffc933;--green:#6fcf7c;--blue:#7fb2f5;--grey:#a9b6bb;--red:#ff8a7e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1a1c;--ink:#e8f1ee;--mute:#a7bcb7;--card:#15282b;--line:#2c4247;--brand:#5fd1c6;--onbrand:#0d1a1c;--sun:#ffc933;--green:#6fcf7c;--blue:#7fb2f5;--grey:#a9b6bb;--red:#ff8a7e;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.1rem/1.65 "Atkinson Hyperlegible",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Arial Black",sans-serif;line-height:1.1;margin:0 0 .5em}
+h1{font-size:clamp(2.6rem,8vw,5.2rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:800}
+h3{font-size:1.25rem;font-weight:600}
+p{margin:0 0 1em;max-width:62ch}
+a{color:var(--brand)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:var(--sun);color:#000;padding:8px 12px;z-index:20}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:10}
+nav .wrap{display:flex;gap:18px;align-items:center;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+nav b{font-family:"Bricolage Grotesque",sans-serif;margin-right:auto;font-size:1.15rem}
+nav a{text-decoration:none;color:var(--ink);font-weight:700;font-size:.98rem}
+nav a:hover{text-decoration:underline}
+.hero{padding:72px 0 56px}
+.hero p.lead{font-size:1.3rem;color:var(--mute)}
+.btn{display:inline-block;background:var(--brand);color:var(--onbrand);border:0;border-radius:6px;padding:14px 24px;font:700 1.05rem "Atkinson Hyperlegible",sans-serif;cursor:pointer;text-decoration:none}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn:hover{filter:brightness(1.1)}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px}
+.bin{background:var(--card);border:1px solid var(--line);border-top:10px solid var(--c);border-radius:4px 4px 14px 14px;padding:18px}
+.bin h3{color:var(--c)}.bin p{font-size:1rem;margin:0 0 .6em}
+.g{--c:var(--green)}.b{--c:var(--blue)}.k{--c:var(--grey)}.r{--c:var(--red)}
+.note{color:var(--mute);font-size:.98rem}
+.band{background:var(--card);border-block:1px solid var(--line)}
+.scroll{overflow-x:auto;margin-top:20px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:1rem}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg);font-family:"Bricolage Grotesque",sans-serif}
+.warn{border-left:6px solid var(--sun);padding:12px 16px;background:var(--bg);margin:20px 0;max-width:70ch}
+.game{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px;max-width:720px;margin-top:20px}
+.item{font:800 1.8rem "Bricolage Grotesque",sans-serif;margin:6px 0 16px}
+.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.choices button{border:2px solid var(--c);background:transparent;color:var(--ink);padding:12px;border-radius:6px;font:700 1rem "Atkinson Hyperlegible",sans-serif;cursor:pointer}
+.choices button:hover{background:var(--c);color:var(--bg)}
+#fb{min-height:3.4em;margin-top:14px;font-weight:700}
+form{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px;max-width:680px;margin-top:20px}
+label{display:block;font-weight:700;margin:14px 0 4px}
+input[type=text],input[type=email],textarea{width:100%;padding:12px;border:2px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+.chk{display:flex;gap:10px;align-items:flex-start;margin:16px 0}.chk input{width:22px;height:22px;margin-top:4px;flex:none}.chk label{margin:0;font-weight:400}
+#msg{margin-top:14px;font-weight:700}
+footer{padding:36px 0 56px;color:var(--mute);font-size:.98rem}
+.topbar{background:var(--brand);color:var(--onbrand);font-weight:700;font-size:1rem;text-align:center;padding:12px 16px;line-height:1.4}
+#prog{position:fixed;top:0;left:0;height:5px;width:0;background:var(--sun);z-index:30}
+.bin{cursor:pointer;position:relative;transition:transform .2s,box-shadow .2s}
+.bin:hover,.bin:focus-visible{transform:translateY(-4px);box-shadow:0 6px 0 var(--c)}
+.bin::after{content:"Tap for a tip +";display:block;font-size:.92rem;font-weight:700;color:var(--c);margin-top:8px}
+.bin.open::after{content:"Tap to close −"}
+.more{display:none;border-top:1px dashed var(--line);padding-top:10px;font-size:1rem}
+.bin.open .more{display:block}
+tbody tr:hover{background:var(--bg)}
+.cue{display:inline-flex;gap:8px;align-items:center;font-weight:700;color:var(--brand);margin-top:22px;text-decoration:none}
+.cue span{display:inline-block;animation:bob 1.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(6px)}}
+.choices button{transition:transform .15s,background .15s}.choices button:active{transform:scale(.95)}
+.steps{font-weight:700;color:var(--mute);margin:14px 0 4px}.steps b{color:var(--brand)}
+.rf{font-size:.78em;vertical-align:super;text-decoration:none;font-weight:700;margin-left:1px}
+.cbar{display:grid;grid-template-columns:minmax(96px,170px) 1fr 46px;gap:10px;align-items:center;width:100%;background:none;border:0;padding:8px 0;color:var(--ink);font:700 1rem "Atkinson Hyperlegible",sans-serif;text-align:left;cursor:pointer}
+.track{background:var(--line);border-radius:4px;display:block}
+.cbar i{display:block;height:24px;width:0;background:var(--c);border-radius:4px;transition:width 1s ease-out}
+.cbar:hover .track,.cbar.on .track{outline:2px solid var(--c);outline-offset:2px}
+#segnote{min-height:3.2em;margin-top:10px;color:var(--ink);font-weight:700}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:28px}
+.fact{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--brand);border-radius:4px;padding:16px 18px}
+.fact h3{font-size:1.1rem}.fact p{font-size:1rem;margin:0 0 .7em}
+details{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin:10px 0;max-width:720px}
+summary{cursor:pointer;font-weight:700}
+details[open] summary{margin-bottom:8px}
+.todo label{display:flex;gap:10px;align-items:flex-start;font-weight:400;margin:10px 0}.todo input{width:22px;height:22px;margin-top:3px;flex:none}
+#ckout{font-weight:700;color:var(--brand);margin-top:12px}
+#sources ol{padding-left:1.3em;font-size:1rem;max-width:80ch}#sources li{margin-bottom:.7em}
+.counter{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:22px 0 6px}
+.num{font:800 clamp(3rem,10vw,4.6rem)/1 "Bricolage Grotesque",sans-serif;color:var(--brand)}
+.num.bump{animation:bump .5s}
+@keyframes bump{40%{transform:scale(1.25)}}
+.wall{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 6px}
+.wb svg{width:30px;height:auto;display:block}
+.wb.on svg{filter:drop-shadow(0 0 6px var(--sun))}
+.wb.pop svg{animation:pop .9s}
+@keyframes pop{0%{transform:scale(.6)}50%{transform:scale(1.4)}100%{transform:scale(1)}}
+.glass{fill:var(--line);transition:fill .6s .1s}.base{fill:var(--grey)}.fil{fill:none;stroke:var(--mute);stroke-width:3;transition:stroke .4s}
+.wb.on .glass,.bulb.on .glass{fill:var(--sun)}.wb.on .fil,.bulb.on .fil{stroke:#fff}
+.rays{opacity:0;transition:opacity .4s .3s}.rays line{stroke:var(--sun);stroke-width:5;stroke-linecap:round}
+.bulb.on .rays{opacity:1}
+.bulb svg{width:170px;height:auto;display:block;margin:0 auto;overflow:visible}
+.bulb.on svg{animation:glow 1.4s ease-in-out infinite alternate}
+@keyframes glow{from{filter:drop-shadow(0 0 8px var(--sun))}to{filter:drop-shadow(0 0 30px var(--sun))}}
+.ov{position:fixed;inset:0;background:rgba(5,15,18,.8);display:grid;place-items:center;z-index:40;padding:20px}.ov[hidden]{display:none}
+.ovbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px;max-width:420px;text-align:center}
+.ovbox p{margin:0 auto 1em}
+.eq{font:700 1.05rem/1.6 "Atkinson Hyperlegible",sans-serif;background:var(--card);border-left:5px solid var(--brand);padding:8px 14px;margin:8px 0;overflow-x:auto;white-space:nowrap}
+.tagline{font:800 clamp(1.4rem,3.6vw,2.1rem)/1.2 "Bricolage Grotesque",sans-serif;margin:0 0 .6em;max-width:28ch}
+.about{border-left:6px solid var(--sun);padding-left:20px;max-width:760px}
+.about p{font-size:1.2rem;margin:0}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cue span{animation:none}.bin{transition:none}.cbar i{transition:none}.num.bump,.wb.pop svg,.bulb.on svg{animation:none}.glass,.rays,.fil{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="prog" aria-hidden="true"></div>
+<nav aria-label="Main"><div class="wrap"><b>Sort It Out La Trinidad</b><a href="#segregation">Segregation</a><a href="#facts">Facts</a><a href="#local">La Trinidad</a><a href="#chem">Chemistry</a><a href="#chemicals">Chemicals</a><a href="#play">Try it</a><a href="#petition">Petition</a><a href="#sources">Sources</a></div></nav>
+
+<main id="main">
+<section class="hero"><div class="wrap">
+<h1>SORT IT OUT</h1>
+<p class="tagline">What you throw away doesn’t disappear.</p>
+<p class="lead">It ends up in our soil, our water and our neighbors’ lungs. Sorting waste correctly and handling household and campus chemicals safely are two small habits that protect La Trinidad, Benguet, and everyone who lives, studies, farms or visits here.</p>
+<div class="row"><a class="btn" href="#petition">Sign the petition</a><a class="btn alt" href="#segregation">Learn to sort</a></div>
+<a class="cue" href="#segregation"><span aria-hidden="true">↓</span> Scroll down and tap the bins to learn more</a>
+</div></section>
+
+<section id="about"><div class="wrap"><div class="about">
+<h2>What this website is for</h2>
+<p>This is an advocacy and awareness website created by the Agricultural and Biosystems Engineering 1A students for their community immersion. Our goal is to give back to the community in simple ways.</p>
+</div></div></section>
+
+<section id="segregation" class="band"><div class="wrap">
+<h2>Four bins, one habit</h2>
+<p>Philippine waste data group household waste into four types: biodegradable, recyclable, residual and special waste<a class="rf" href="#r1">[1]</a>. The Ecological Solid Waste Management Act (RA 9003) requires segregation at source<a class="rf" href="#r3">[3]</a>. Bin colors can differ by barangay, school or building, so always follow the labels where you are.</p>
+<div class="bins">
+<div class="bin g"><h3>Green: biodegradable</h3><p>Food scraps, fruit peels, leaves, paper towels, garden waste.</p><p class="note">Can become compost.</p><p class="more">Tip: keep a small covered bucket in the kitchen and empty it daily to avoid smell and flies.</p></div>
+<div class="bin b"><h3>Blue: recyclable</h3><p>Clean paper, cardboard, plastic bottles, cans, glass.</p><p class="more">Tip: do not flatten bottles. Empty them completely of liquids and other contents, then rinse and dry them so they can be recycled properly. Wet or greasy paper is not recyclable.</p><p class="note">Rinse and dry first.</p></div>
+<div class="bin k"><h3>Black: residual</h3><p>Candy wrappers, sanitary napkins, disposable diapers, plastic-lined cartons and broken ceramics<a class="rf" href="#r14">[14]</a>.</p><p class="note">The last resort bin.</p><p class="more">Tip: shrink the pile first. Only about 18% of waste is truly residual<a class="rf" href="#r1">[1]</a>, so before you toss, ask if it can be composted, recycled or avoided. Carry a reusable bag, bottle and food container, and choose refills over single-use sachets. Keep residuals dry in a sealed bag and put them out only on your barangay’s collection schedule.</p></div>
+<div class="bin r"><h3>Red: special and hazardous</h3><p>Batteries, bulbs, old medicine, aerosol cans, e-waste, chemical containers.</p><p class="note">Never mix with the others.</p><p class="more">Tip: store it in a closed, labeled container away from children until you can bring it to a drop-off point.</p></div>
+</div>
+</div></section>
+
+<section id="facts"><div class="wrap">
+<h2>Waste facts, with sources</h2>
+<p>The facts below come from the studies and official sources listed under “Sources”. The bracketed numbers point to them. National figures may differ from your barangay or campus, so check your local government’s waste data when you can.</p>
+
+<h3>What is in a Philippine waste bin?</h3>
+<p>DENR data from 2014, cited in the Philippine Senate, show the share of each waste type in municipal solid waste<a class="rf" href="#r1">[1]</a>. More than half is food and garden waste that could become compost. Tap a bar for examples.</p>
+<div id="comp">
+<button class="cbar g" data-d="Biodegradable, 52%: food scraps, kitchen waste and garden waste."><span>Biodegradable</span><span class="track"><i data-w="52"></i></span><span>52%</span></button>
+<button class="cbar b" data-d="Recyclable, 28%: certain plastics, paper, metals, glass, textiles, leather and rubber."><span>Recyclable</span><span class="track"><i data-w="28"></i></span><span>28%</span></button>
+<button class="cbar k" data-d="Residual, 18%: sanitary napkins, disposable diapers, contaminated paper and candy wrappers."><span>Residual</span><span class="track"><i data-w="18"></i></span><span>18%</span></button>
+<button class="cbar r" data-d="Special, 2%: paints, thinners, batteries, oil and consumer electronics."><span>Special</span><span class="track"><i data-w="2"></i></span><span>2%</span></button>
+</div>
+<p id="segnote" aria-live="polite">Tap a bar to see what it includes.</p>
+
+<div class="facts">
+<div class="fact"><h3>The scale of the problem</h3><p>A summary of the World Bank’s 2025 What a Waste database reports that the Philippines generates about 14.6 million tons of municipal solid waste each year, ranking 27th of 50 countries<a class="rf" href="#r2">[2]</a>.</p></div>
+<div class="fact"><h3>Waste and our rivers</h3><p>A 2021 study in <i>Science Advances</i> estimated that more than 1,000 rivers account for 80% of the plastic that rivers carry to the ocean, and that small urban rivers are among the most polluting<a class="rf" href="#r4">[4]</a>. Its model ranked the Philippines highest, at about 36% of the global total<a class="rf" href="#r5">[5]</a>.</p><p class="note">This is a model estimate with substantial uncertainty, not a direct count, so treat the exact share with care<a class="rf" href="#r5">[5]</a>.</p></div>
+<div class="fact"><h3>Why food scraps matter for climate</h3><p>In landfills, organic waste breaks down without oxygen and releases methane. Composting, which uses oxygen, releases carbon dioxide instead<a class="rf" href="#r7">[7]</a>. A study in <i>Scientific Reports</i> found composting food scraps produced 38 to 84% fewer greenhouse gas emissions than landfilling them<a class="rf" href="#r6">[6]</a>.</p></div>
+<div class="fact"><h3>What RA 9003 requires</h3><p>Segregation at source (Sec. 21), a materials recovery facility (MRF) in every barangay or cluster (Sec. 32), and at least 25% of waste diverted from disposal through reuse, recycling and composting (Sec. 20)<a class="rf" href="#r3">[3]</a>. Open dumping and open burning of solid waste are prohibited<a class="rf" href="#r3">[3]</a>.</p></div>
+</div>
+
+<h3 style="margin-top:32px">Myth or fact?</h3>
+<details><summary>“Food scraps are harmless in a landfill because they rot away.”</summary><p>Myth. Buried food waste breaks down without oxygen and produces methane<a class="rf" href="#r7">[7]</a>. Keeping it out of the trash and composting it avoids much of that<a class="rf" href="#r6">[6]</a>.</p></details>
+<details><summary>“Mixing cleaners makes them stronger.”</summary><p>Myth, and a dangerous one. Bleach mixed with ammonia or with acids such as vinegar or toilet bowl cleaner releases toxic gases<a class="rf" href="#r9">[9]</a>. Use one product at a time, as the label directs.</p></details>
+<details><summary>“Burning our trash is a quick way to get rid of it.”</summary><p>Myth. Open burning of solid waste is a prohibited act under RA 9003<a class="rf" href="#r3">[3]</a>. Segregate instead, and bring leftovers to your barangay MRF or collection.</p></details>
+
+<h3 style="margin-top:32px">Check what you already do</h3>
+<div class="todo">
+<label><input type="checkbox">I keep food scraps separate from other waste.</label>
+<label><input type="checkbox">I empty and rinse bottles and containers before recycling.</label>
+<label><input type="checkbox">I keep batteries and bulbs out of the general bin.</label>
+<label><input type="checkbox">I never mix cleaning products.</label>
+<label><input type="checkbox">I bring a reusable bag or bottle.</label>
+<label><input type="checkbox">I never burn trash.</label>
+</div>
+<div id="ckout" aria-live="polite"></div>
+</div></section>
+
+<section id="local"><div class="wrap">
+<h2>In La Trinidad, Benguet</h2>
+<p>Our campaign supports what La Trinidad already asks of residents and visitors. These local facts come from news reports, a research article and government releases. Schedules and programs can change, so confirm the latest with the Municipal Environment and Natural Resources Office (MENRO) or your barangay.</p>
+<div class="facts">
+<div class="fact"><h3>Know the local rules</h3><p>Municipal Ordinance 53-98, the Comprehensive Solid Waste Management ordinance, was enacted in February 2017<a class="rf" href="#r11">[11]</a>. MENRO posts collection schedules, do’s and don’ts and penalty reminders at collection points, and these are meant for visitors too<a class="rf" href="#r11">[11]</a>. People who dump garbage outside the schedule can be issued citation tickets<a class="rf" href="#r12">[12]</a>.</p></div>
+<div class="fact"><h3>Bantay Basura</h3><p>Deputized volunteers at collection points check that waste is segregated at source and put out on schedule<a class="rf" href="#r13">[13]</a>. MENRO reported that the daily waste going to the landfill fell from about 50 to about 30 tons between July 2017 and February 2018 after the program began<a class="rf" href="#r13">[13]</a>. Funding for the program has been a concern<a class="rf" href="#r13">[13]</a>.</p></div>
+<div class="fact"><h3>Where residual waste goes</h3><p>La Trinidad uses the Alno engineered sanitary landfill, whose space is limited, and the town has been reported hauling some waste to Capas, Tarlac<a class="rf" href="#r14">[14]</a>. Sorting well keeps more waste out of the landfill and makes it last longer<a class="rf" href="#r14">[14]</a>.</p></div>
+<div class="fact"><h3>Vegetable trimmings</h3><p>La Trinidad has the largest vegetable trading post in the Philippines, with about 60 tons of vegetable trimmings a day reported in 2011<a class="rf" href="#r15">[15]</a>. Benguet State University’s trading center set up a rotary composting facility in 2017 to turn biodegradable trimmings into compost<a class="rf" href="#r16">[16]</a>.</p></div>
+<div class="fact"><h3>Pesticide containers</h3><p>Benguet’s provincial ordinance calls for farmers to triple-rinse empty pesticide containers, with collection and disposal arranged by dealers and companies<a class="rf" href="#r17">[17]</a>. Hedcor reported collecting nearly 5,000 containers from La Trinidad, Bakun and Sablan from 2016 to 2018<a class="rf" href="#r18">[18]</a>. Never reuse these containers for food, water or drinks.</p></div>
+<div class="fact"><h3>Why education matters</h3><p>A Benguet State University study found that 53% of surveyed residents considered La Trinidad’s segregation scheme a success. Residents who rated barangay officials meeting and explaining the scheme as important were about 5.8 times more likely to call it a success<a class="rf" href="#r19">[19]</a>. This supports community education like ours.</p></div>
+</div>
+</div></section>
+
+<section id="chem" class="band"><div class="wrap">
+<h2>The chemistry behind our campaign</h2>
+<p>This community immersion is a project for our Chemistry class. Every habit we promote rests on chemistry we study. Tap a card to see the reaction and how it connects to the campaign.</p>
+<details><summary>Acids, bases and redox: why bleach must never meet vinegar or ammonia</summary>
+<div class="eq">NaOCl + 2 HCl → NaCl + Cl₂ + H₂O</div>
+<div class="eq">NaOCl + NH₃ → NH₂Cl + NaOH</div>
+<p>Sodium hypochlorite in bleach is a strong oxidizer. With a strong acid it can release chlorine gas, and with ammonia it forms chloramine<a class="rf" href="#r9">[9]</a>. These equations are simplified, because the exact products depend on concentration and conditions.</p>
+<p class="note">Campaign link: our “never mix cleaning products” message.</p></details>
+<details><summary>Biochemistry: aerobic composting versus anaerobic landfills</summary>
+<div class="eq">Aerobic: C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O</div>
+<div class="eq">Anaerobic: C₆H₁₂O₆ → 3 CH₄ + 3 CO₂</div>
+<p>With oxygen, microbes break food waste down mainly into carbon dioxide. Without oxygen, as in a landfill, they also release methane<a class="rf" href="#r7">[7]</a>, a greenhouse gas reported to be up to 35 times as potent as carbon dioxide over a century<a class="rf" href="#r10">[10]</a>. Glucose stands in for food waste here, and real waste is a complex mix.</p>
+<p class="note">Campaign link: why we ask people to compost food scraps.</p></details>
+<details><summary>Neutralization: why labs sort waste by hazard type</summary>
+<div class="eq">HCl + NaOH → NaCl + H₂O + heat</div>
+<p>Acids and bases react and release heat. Mixing incompatible wastes in one container can cause dangerous reactions, so laboratories use separate, labeled waste containers and follow each chemical’s safety data sheet.</p>
+<p class="note">Campaign link: the university lab rows in our chemicals table.</p></details>
+<details><summary>Conservation of mass: why burning does not make waste disappear</summary>
+<p>Atoms are conserved in chemical reactions. Burning rearranges them into smoke, gases and ash instead of removing them. Metals such as the mercury in fluorescent bulbs are elements, so they cannot be broken down and need special collection.</p>
+<p class="note">Campaign link: no open burning, and special waste goes to special collection.</p></details>
+<details><summary>Polymers: why we empty and rinse plastic bottles</summary>
+<p>Plastics are synthetic polymers, which are long chains of repeating units. Recycling sorts plastics by type, and leftover liquid or food in a bottle can contaminate that process, so we ask people to empty and rinse bottles first.</p>
+<p class="note">Campaign link: the blue bin tip.</p></details>
+<details><summary>Solutions and dilution: why pesticide containers are triple-rinsed</summary>
+<div class="eq">C₁V₁ = C₂V₂</div>
+<p>Each rinse dilutes the residue left in a container, so three rinses leave far less than one. Benguet’s provincial ordinance calls for triple-rinsing empty pesticide containers<a class="rf" href="#r17">[17]</a>. This is a simplified idea, so always follow the product label.</p>
+<p class="note">Campaign link: pesticide containers on La Trinidad’s farms.</p></details>
+<details><summary>From waste to soil: our link to Agricultural and Biosystems Engineering</summary>
+<p>Compost made from food and garden waste is a soil amendment that can help reduce runoff and control erosion<a class="rf" href="#r7">[7]</a>. In La Trinidad, vegetable trimmings from the trading post are composted into fertilizer for farmers<a class="rf" href="#r15">[15]</a><a class="rf" href="#r16">[16]</a>. For ABE students, this connects chemistry, soil and waste management in one cycle.</p>
+<p class="note">Campaign link: green bin waste can return to the soil.</p></details>
+</div></section>
+
+<section id="chemicals"><div class="wrap">
+<h2>Chemicals at home and on campus</h2>
+<p>Everyday cleaners and lab supplies can hurt people, drains and rivers when they are mixed, poured away or thrown in the wrong bin. Hazardous waste is covered by RA 6969, and your school’s environmental health and safety office or your local government can tell you where to take it.</p>
+<div class="warn"><b>Never mix cleaning products.</b> Bleach with ammonia makes toxic chloramine gas. Bleach with vinegar, toilet cleaner or other acids releases chlorine gas. Use one product at a time, with the window open.<a class="rf" href="#r9">[9]</a></div>
+<p class="note">A 2020 CDC survey of 502 US adults found that only 35% knew bleach should not be mixed with vinegar, and 58% knew not to mix it with ammonia<a class="rf" href="#r8">[8]</a>. Share this page so more people know.</p>
+<div class="scroll"><table>
+<caption class="note" style="text-align:left;padding-bottom:8px">Common examples and safer handling</caption>
+<thead><tr><th scope="col">Where</th><th scope="col">Item</th><th scope="col">Do this</th><th scope="col">Don’t</th></tr></thead>
+<tbody>
+<tr><td>Home</td><td>Bleach, toilet and drain cleaners</td><td>Keep in the original labeled bottle. Use up, or bring leftovers to a hazardous waste drop-off.</td><td>Mix products or pour large amounts into waterways.</td></tr>
+<tr><td>Home</td><td>Batteries, power banks, phones</td><td>Collect in a sealed jar and bring to an e-waste or battery collection point.</td><td>Burn them or put them in the general bin.</td></tr>
+<tr><td>Home</td><td>Fluorescent bulbs, thermometers</td><td>Handle gently; these may contain mercury. Take to special waste collection.</td><td>Crush or break them.</td></tr>
+<tr><td>Home</td><td>Old medicine, aerosol cans, paint</td><td>Keep in the original container, away from children. Return to a pharmacy or collection event.</td><td>Flush medicine or burn aerosol cans.</td></tr>
+<tr><td>Home</td><td>Used cooking oil</td><td>Cool, store in a bottle, and give to a collector or reuse program.</td><td>Pour down the sink.</td></tr>
+<tr><td>Farm</td><td>Empty pesticide containers</td><td>Triple-rinse as the label and Benguet’s provincial ordinance direct, then bring them to a pesticide-container collection point.<a class="rf" href="#r17">[17]</a></td><td>Reuse them for food or water, burn them or throw them in the regular trash.</td></tr>
+<tr><td>University</td><td>Lab solvents, acids, bases</td><td>Sort by hazard type into labeled waste containers, as your lab instructor directs.</td><td>Pour down the sink or combine incompatible wastes.</td></tr>
+<tr><td>University</td><td>Printer toner, ink, lab glassware, broken thermometers</td><td>Return toner to suppliers. Put broken glass in a rigid, labeled container.</td><td>Throw in the regular trash.</td></tr>
+<tr><td>University</td><td>Empty chemical bottles</td><td>Ask the lab staff how to triple-rinse and label them.</td><td>Reuse them for food or drinks.</td></tr>
+</tbody></table></div>
+<p class="note" style="margin-top:16px">This page is general guidance, not a substitute for the safety data sheet (SDS) of a product or your institution’s rules. If someone is exposed to fumes or swallows a chemical, call your local emergency number or poison control right away.</p>
+</div></section>
+
+<section id="play" class="band"><div class="wrap">
+<h2>Which bin?</h2>
+<p>Test yourself. Pick the right bin for each item.</p>
+<p class="cue" style="margin-top:0"><span aria-hidden="true">↓</span> Tap a colored bin below to answer</p>
+<div class="game" aria-live="polite">
+<div class="note" id="count"></div>
+<div class="item" id="item"></div>
+<div class="choices">
+<button class="g" data-a="g">Green</button><button class="b" data-a="b">Blue</button>
+<button class="k" data-a="k">Black</button><button class="r" data-a="r">Red</button>
+</div>
+<div id="fb"></div>
+<button class="btn alt" id="next" hidden>Next item</button>
+</div>
+</div></section>
+
+<section id="petition"><div class="wrap">
+<h2>Add your name to our campaign</h2>
+<p>We’re asking the residents, schools, barangays and leaders of La Trinidad, Benguet to support clear waste segregation, proper disposal points for hazardous waste, and regular education on chemical safety. Fill in the form and your Gmail will open with the petition ready to send. You stay in control: review it, then press Send.</p>
+<div class="counter"><div class="num" id="cnt" aria-live="polite">0</div><div><b>supporters counted</b><br><span class="note">Confirmed by our team, plus supports sent from this device.</span></div></div>
+<div class="wall" id="wall" role="img" aria-label="Light bulbs, one lit for each supporter"></div>
+<p class="note" id="wallnote"></p>
+<form id="pf" novalidate>
+<label for="nm">Full name</label><input type="text" id="nm" autocomplete="name" required>
+<label for="em">Your email (optional)</label><input type="email" id="em" autocomplete="email">
+<label for="af">Barangay, school or organization</label><input type="text" id="af">
+<label for="cm">Your message (optional)</label><textarea id="cm" rows="3"></textarea>
+<div class="chk"><input type="checkbox" id="ok"><label for="ok">I support the Sort It Out awareness campaign on proper waste segregation and safe handling of household and school chemicals.</label></div>
+<div class="steps" id="steps" aria-live="polite"></div>
+<div class="row"><button type="submit" class="btn">Send my support via Gmail</button><a class="btn alt" id="mt" href="#">Use another email app</a></div>
+<div id="msg" role="status"></div>
+</form>
+<div class="row" style="margin-top:20px"><button class="btn alt" id="share">Copy page link to share</button></div>
+</div></section>
+<section id="sources" class="band"><div class="wrap">
+<h2>Sources</h2>
+<p>We used these sources for the facts on this page. Please check them for the latest figures, and read the full text of RA 9003 for exact legal wording.</p>
+<ol>
+<li id="r1">Senate of the Philippines (2020). Press release citing DENR 2014 data on municipal solid waste composition. <a href="https://legacy.senate.gov.ph/press_release/2020/0901_gatchalian1.asp" target="_blank" rel="noopener">legacy.senate.gov.ph</a></li>
+<li id="r2">World Bank, What a Waste Global Database (2025), as summarized in “Philippines Ranks 27th in Global Solid Waste Generation”. <a href="https://datawrapper.dwcdn.net/aLkq1/2/" target="_blank" rel="noopener">datawrapper.dwcdn.net</a></li>
+<li id="r3">Republic Act No. 9003, Ecological Solid Waste Management Act of 2000, as summarized in the UN Centre for Regional Development presentation “Philippines 3R” (Secs. 20, 21, 32). <a href="https://uncrd.un.org/sites/uncrd.un.org//files/2rd-3r_rt2_05_philippines.pdf" target="_blank" rel="noopener">uncrd.un.org</a>. See also IGES, “Policy Implementation of RA 9003”. <a href="https://www.iges.or.jp/en/publication_documents/pub/workingpaper/en/3308/6-5.pdf" target="_blank" rel="noopener">iges.or.jp</a></li>
+<li id="r4">Meijer, L.J.J., van Emmerik, T., van der Ent, R., Schmidt, C., Lebreton, L. (2021). More than 1000 rivers account for 80% of global riverine plastic emissions into the ocean. <i>Science Advances</i>, 7(18). doi:10.1126/sciadv.aaz5803. <a href="https://theoceancleanup.com/scientific-publications/more-than-1000-rivers-account-for-80-of-global-riverine-plastic-emissions-into-the-ocean/" target="_blank" rel="noopener">theoceancleanup.com</a></li>
+<li id="r5">Asia News Network, “Is the Philippines really the world’s No. 1 source of ocean plastic pollution?” (explains the 36% estimate and the model’s uncertainty). <a href="https://asianews.network/?p=303298" target="_blank" rel="noopener">asianews.network</a></li>
+<li id="r6">Study in <i>Scientific Reports</i> led by Whendee Silver (UC Berkeley) on composting versus landfilling food scraps, as reported by PBS SoCal. <a href="https://pbssocal.org/news-community/heres-how-collecting-food-scraps-and-keeping-them-out-of-landfills-can-reduce-methane-emissions" target="_blank" rel="noopener">pbssocal.org</a></li>
+<li id="r7">University of Illinois Extension (2024). Reduce methane generation by composting. <a href="https://extension.illinois.edu/blogs/everyday-environment/2024-10-17-reduce-methane-generation-composting" target="_blank" rel="noopener">extension.illinois.edu</a></li>
+<li id="r8">CDC survey of 502 US adults on disinfectant misuse (2020), as reported by ZME Science. <a href="https://zmescience.com/science/one-third-americans-misuse-disinfectants-052532" target="_blank" rel="noopener">zmescience.com</a></li>
+<li id="r9">City of Torrance Fire Department, Household Cleaners safety tips (bleach with acids or ammonia). <a href="https://www.torranceca.gov/government/fire/safety-tips/household-cleaners" target="_blank" rel="noopener">torranceca.gov</a>. See also Tennessee Department of Health, Chlorine (cites CDC). <a href="https://www.tn.gov/health/cedep/environmental/environmental-health-topics/eht/chlorine.html" target="_blank" rel="noopener">tn.gov</a></li>
+<li id="r10">Scientific American (2015). EPA may underestimate landfill methane (methane potency relative to carbon dioxide). <a href="https://www.scientificamerican.com/article/epa-may-underestimate-landfill-methane/" target="_blank" rel="noopener">scientificamerican.com</a></li>
+<li id="r11">Baguio Herald Express and Baguio Midland Courier, reports on MENRO La Trinidad’s waste disposal campaign and Municipal Ordinance 53-98. <a href="https://baguioheraldexpressonline.com/?p=66799" target="_blank" rel="noopener">baguioheraldexpressonline.com</a></li>
+<li id="r12">SunStar Baguio, “Valley cites solid waste violators”. <a href="https://www.sunstar.com.ph/more-articles/valley-cites-solid-waste-violators-" target="_blank" rel="noopener">sunstar.com.ph</a></li>
+<li id="r13">SunStar Baguio, “Valley to institutionalize ‘Bantay Basura’ program” and “La Trinidad’s ‘Bantay Basura’ seeks funding”. <a href="https://www.sunstar.com.ph/baguio/local-news/valley-to-institutionalize-bantay-basura-programndo" target="_blank" rel="noopener">sunstar.com.ph</a></li>
+<li id="r14">Baguio Midland Courier, report on La Trinidad waste segregation, the Alno landfill and the National Solid Waste Management Commission’s definition of residual waste. <a href="https://www.baguiomidlandcourier.com.ph/?p=26907" target="_blank" rel="noopener">baguiomidlandcourier.com.ph</a></li>
+<li id="r15">Embassy of Japan in the Philippines (2011). Turnover of the organic composting facility in La Trinidad, Benguet. <a href="https://www.ph.emb-japan.go.jp/pressandspeech/press/pressreleases/2011/28.htm" target="_blank" rel="noopener">ph.emb-japan.go.jp</a></li>
+<li id="r16">Aggie Trends (2022). BSU-BAPTC compost facility lessens farmers’ problem on veggie waste. <a href="https://northphiltimes.blogspot.com/2022/07/bsu-baptc-compost-facility-lessens.html?m=0" target="_blank" rel="noopener">northphiltimes.blogspot.com</a></li>
+<li id="r17">SunStar, “Collection centers for pesticide containers to open” (Benguet empty pesticide container management ordinance). <a href="https://www.sunstar.com.ph/more-articles/collection-centers-for-pesticide-containers-to-open" target="_blank" rel="noopener">sunstar.com.ph</a></li>
+<li id="r18">AboitizPower (2018). Hedcor turns trash into cash for host communities in Benguet. <a href="https://aboitizpower.com/news/corporate-social-responsibility/aboitizpower-hydro-unit-turns-trash-cash-host-communities-benguet" target="_blank" rel="noopener">aboitizpower.com</a></li>
+<li id="r19">Lubrica, M.A.B. The implementation of the waste segregation scheme in La Trinidad, Benguet. Benguet State University research journal. <a href="https://journals1916.bsu.edu.ph/index.php/BRJ/article/view/81" target="_blank" rel="noopener">journals1916.bsu.edu.ph</a></li>
+</ol>
+</div></section>
+</main>
+
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="ovt" hidden><div class="ovbox"><div class="bulb" id="bigb"></div><h3 id="ovt">You lit a bulb!</h3><p id="ovp"></p><button class="btn" id="ovx" type="button">Close</button></div></div>
+<footer><div class="wrap">A community immersion project by Agricultural and Biosystems Engineering 1A students for a cleaner, safer environment. Please share this page with your family, classmates and neighbors.</div></footer>
+
+<script>
+// EDIT THIS: the email address that should receive the signed petitions.
+const CAMPAIGN_EMAIL = "maxwelldemiux@gmail.com";
+
+const items=[["Banana peel","g","Food scraps are biodegradable."],["Clean plastic bottle","b","Rinsed plastic bottles are recyclable."],["Used AA battery","r","Batteries are hazardous. Take them to a collection point."],["Chip wrapper","k","Multi-layer wrappers are residual waste."],["Empty bleach bottle","r","Chemical containers go to special waste after rinsing as directed."],["Old cardboard box","b","Flatten it and keep it dry."],["Broken fluorescent bulb","r","It may contain mercury. Handle with care and bring to special waste."],["Dried leaves","g","Great for compost."]];
+const names={g:"Green",b:"Blue",k:"Black",r:"Red"};
+let i=0,score=0,done=false;
+const $=id=>document.getElementById(id);
+function show(){
+  done=false;$("item").textContent=items[i][0];$("count").textContent="Item "+(i+1)+" of "+items.length+" · Score "+score;
+  $("fb").textContent="";$("next").hidden=true;
+}
+document.querySelectorAll(".choices button").forEach(b=>b.onclick=()=>{
+  if(done)return;done=true;
+  const ok=b.dataset.a===items[i][1];if(ok)score++;
+  $("fb").textContent=(ok?"Correct. ":"Not quite. It goes in the "+names[items[i][1]]+" bin. ")+items[i][2];
+  $("count").textContent="Item "+(i+1)+" of "+items.length+" · Score "+score;
+  $("next").hidden=false;$("next").textContent=i===items.length-1?"See my result":"Next item";
+});
+$("next").onclick=()=>{
+  if(i===items.length-1){$("item").textContent="You scored "+score+" out of "+items.length;$("fb").textContent="Share what you learned with someone at home.";$("next").textContent="Play again";i=-1;done=true;$("next").onclick=()=>{i=0;score=0;done=false;$("next").onclick=nextFn;show();};return;}
+  i++;show();
+};
+const nextFn=$("next").onclick;
+show();
+
+function build(){
+  const n=$("nm").value.trim(),e=$("em").value.trim(),a=$("af").value.trim(),c=$("cm").value.trim();
+  const subject="I support the Sort It Out awareness campaign";
+  const body="To the Sort It Out campaign team,\n\nI, "+n+(a?" of "+a:"")+", support your campaign for proper waste segregation, safe handling of household and school chemicals, and more environmental education in La Trinidad, Benguet.\n"+(c?"\nMy message: "+c+"\n":"")+"\nPlease add my name to the list of supporters."+(e?"\nContact: "+e:"")+"\n\nThank you,\n"+n;
+  return{subject,body};
+}
+function valid(){
+  const m=$("msg");
+  if(!$("nm").value.trim()){m.textContent="Please enter your name.";$("nm").focus();return false;}
+  if(!$("ok").checked){m.textContent="Please tick the box to confirm your support.";$("ok").focus();return false;}
+  m.textContent="";return true;
+}
+$("pf").addEventListener("submit",ev=>{
+  ev.preventDefault();if(!valid())return;
+  const{subject,body}=build();
+  const url="https://mail.google.com/mail/?view=cm&fs=1&to="+encodeURIComponent(CAMPAIGN_EMAIL)+"&su="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+  window.open(url,"_blank","noopener");
+  $("msg").textContent="Gmail should open in a new tab. Review the message and press Send. Thank you!";signed($("nm").value.trim());
+});
+$("mt").addEventListener("click",ev=>{
+  ev.preventDefault();if(!valid())return;
+  const{subject,body}=build();
+  signed($("nm").value.trim());location.href="mailto:"+CAMPAIGN_EMAIL+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+});
+document.querySelectorAll(".bin").forEach(b=>{b.tabIndex=0;b.setAttribute("role","button");b.setAttribute("aria-expanded","false");const t=()=>{b.setAttribute("aria-expanded",b.classList.toggle("open"))};b.addEventListener("click",t);b.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();t();}});});
+window.addEventListener("scroll",()=>{const h=document.documentElement;const m=h.scrollHeight-h.clientHeight;$("prog").style.width=(m>0?h.scrollTop/m*100:0)+"%";},{passive:true});
+function upd(){const d=($("nm").value.trim()?1:0)+($("ok").checked?1:0);$("steps").innerHTML="<b>"+d+" of 2</b> steps done"+(d===2?". Ready to send!":". Add your name and tick the box.");}
+["nm","ok"].forEach(id=>{$(id).addEventListener("input",upd);$(id).addEventListener("change",upd);});upd();
+$("share").onclick=async()=>{
+  try{await navigator.clipboard.writeText(location.href);$("share").textContent="Link copied";}
+  catch(e){$("share").textContent="Copy the address from your browser bar";}
+};
+document.querySelectorAll(".cbar").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".cbar").forEach(x=>x.classList.remove("on"));b.classList.add("on");$("segnote").textContent=b.dataset.d;}));
+const fill=()=>document.querySelectorAll(".cbar i").forEach(x=>x.style.width=x.dataset.w+"%");
+if("IntersectionObserver" in window){new IntersectionObserver((e,o)=>{if(e[0].isIntersecting){fill();o.disconnect();}}).observe($("comp"));}else{fill();}
+const cks=document.querySelectorAll(".todo input");
+function ck(){const n=[...cks].filter(c=>c.checked).length;$("ckout").textContent="You already do "+n+" of "+cks.length+" habits."+(n===cks.length?" Great work! Share this page with a friend.":" Try adding one more this week.");}
+cks.forEach(c=>c.addEventListener("change",ck));ck();
+// EDIT: number of supporter emails you have received and confirmed. Everyone who opens the page sees this number.
+const BASE_COUNT=0;
+let local=0;try{local=parseInt(localStorage.getItem("sio_local"),10)||0;}catch(e){}
+function bulbSVG(r){return '<svg viewBox="-30 -30 180 200" aria-hidden="true">'+(r?'<g class="rays">'+[-80,-50,-25,0,25,50,80].map(a=>'<line x1="60" y1="-6" x2="60" y2="-20" transform="rotate('+a+' 60 52)"/>').join('')+'</g>':'')+'<path class="glass" d="M60 10C37 10 22 28 22 50c0 15 8 23 15 33 4 6 5 10 5 17h36c0-7 1-11 5-17 7-10 15-18 15-33C98 28 83 10 60 10z"/><path class="fil" d="M50 100V70l10-12 10 12v30"/><rect class="base" x="42" y="102" width="36" height="9" rx="3"/><rect class="base" x="46" y="113" width="28" height="9" rx="3"/><path class="base" d="M52 124h16l-3 8H55z"/></svg>';}
+function total(){return BASE_COUNT+local;}
+function render(pop){
+  const t=total();$("cnt").textContent=t;
+  const lit=Math.min(t,20);let h="";
+  for(let i=0;i<20;i++)h+='<span class="wb'+(i<lit?' on':'')+(pop&&i===lit-1?' pop':'')+'">'+bulbSVG(false)+'</span>';
+  $("wall").innerHTML=h;
+  $("wallnote").textContent=t>20?"+"+(t-20)+" more supporters beyond the 20 bulbs.":"Each bulb is one supporter. Help us light all 20.";
+  if(pop){const c=$("cnt");c.classList.remove("bump");void c.offsetWidth;c.classList.add("bump");}
+}
+function signed(name){
+  local++;try{localStorage.setItem("sio_local",local);}catch(e){}
+  render(true);
+  $("bigb").innerHTML=bulbSVG(true);$("bigb").classList.remove("on");
+  $("ovp").textContent="Thank you, "+name+". You are supporter number "+total()+".";
+  $("ov").hidden=false;$("ovx").focus();
+  setTimeout(()=>$("bigb").classList.add("on"),500);
+}
+function closeOv(){$("ov").hidden=true;}
+$("ovx").addEventListener("click",closeOv);
+$("ov").addEventListener("click",e=>{if(e.target.id==="ov")closeOv();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("ov").hidden)closeOv();});
+render(false);
+</script>
+</body>
+</html>
